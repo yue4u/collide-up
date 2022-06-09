@@ -20,13 +20,14 @@ func _physics_process(_delta):
 
 
 func _on_Area2D_body_entered(body):
-	transfer(body.get_node("Shape"), $Area2D)
+	transfer(body.get_node("CollisionPolygon2D"), $Area2D)
 	transfer(body.get_node("Sprite"), self)
 
 func transfer(n1, n2):
-	if n1 and n1.get_parent() != n2:
-		var n1_pos = n1.global_transform
-		n1.get_parent().remove_child(n1)
-		n2.add_child(n1, true)
-		n1.global_transform = n1_pos
-		n1.set_owner(n2)
+	if not n1 or n1.get_parent() == n2:
+		return
+	var n1_pos = n1.global_transform
+	n1.get_parent().remove_child(n1)
+	n2.add_child(n1, true)
+	n1.global_transform = n1_pos
+	n1.set_owner(n2)
