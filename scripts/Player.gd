@@ -1,10 +1,4 @@
-extends RigidBody2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+extends KinematicBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +16,17 @@ func _physics_process(_delta):
 		vel.y += -1
 	if Input.is_key_pressed(KEY_S):
 		vel.y += 1
-	vel = vel.normalized()
-	vel *= 300
-	set_linear_velocity(vel)
+	move_and_slide(vel.normalized() * 300, Vector2(2, 0), false, 4, 0.785, true)
+
+
+func _on_Area2D_body_entered(body):
+	transfer(body.get_node("Shape"), $Area2D)
+	transfer(body.get_node("Sprite"), self)
+
+func transfer(n1, n2):
+	if n1 and n1.get_parent() != n2:
+		var n1_pos = n1.global_transform
+		n1.get_parent().remove_child(n1)
+		n2.add_child(n1, true)
+		n1.global_transform = n1_pos
+		n1.set_owner(n2)
