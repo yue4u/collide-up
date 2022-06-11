@@ -10,10 +10,10 @@ func _process(delta):
 	if $TextureProgress.value < 0:
 		$TextureProgress.value = 0
 
-func _on_Area2D_body_entered(_body):
+func _on_entered():
 	cover = true
 
-func _on_Area2D_body_exited(_body):
+func _on_exited():
 	cover = false
 
 func is_covered():

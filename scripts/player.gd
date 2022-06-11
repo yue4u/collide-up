@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var Goal = load("res://scripts/goal.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -18,10 +19,17 @@ func _physics_process(_delta):
 		vel.y += 1
 	var __ = move_and_slide(vel.normalized() * 300, Vector2(2, 0), false, 4, 0.785, true)
 
+func _on_Area2D_area_entered(area):
+	if area is Goal:
+		area.cover = true
+		return
+	transfer(area.get_node("CollisionPolygon2D"), $Area2D)
+	transfer(area.get_node("Sprite"), self)
 
-func _on_Area2D_body_entered(body):
-	transfer(body.get_node("CollisionPolygon2D"), $Area2D)
-	transfer(body.get_node("Sprite"), self)
+func _on_Area2D_area_exited(area):
+	if area is Goal:
+		area.cover = false
+		return
 
 func transfer(n1, n2):
 	if not n1 or n1.get_parent() == n2:
