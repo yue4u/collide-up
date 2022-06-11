@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/grid.png" type="Texture" id=3]
+
+[node name="Game" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Grid" type="Sprite" parent="ColorRect"]
+visible = false
+position = Vector2( 498, 296 )
+texture = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+modulate = Color( 1, 1, 1, 0.196078 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 896.0
+margin_bottom = 482.0
+rect_clip_content = true
+texture = ExtResource( 3 )
+stretch_mode = 5
+
+[node name="Game" type="Node" parent="ColorRect"]
+
+[node name="Node2D" type="Node2D" parent="ColorRect"]
