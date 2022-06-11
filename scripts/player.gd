@@ -16,7 +16,7 @@ func _physics_process(_delta):
 		vel.y += -1
 	if Input.is_key_pressed(KEY_S):
 		vel.y += 1
-	move_and_slide(vel.normalized() * 300, Vector2(2, 0), false, 4, 0.785, true)
+	var __ = move_and_slide(vel.normalized() * 300, Vector2(2, 0), false, 4, 0.785, true)
 
 
 func _on_Area2D_body_entered(body):

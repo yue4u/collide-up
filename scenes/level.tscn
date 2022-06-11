@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/level.gd" type="Script" id=3]
 
 [node name="Game" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
-[node name="Control" type="Control" parent="." index="1"]
+[node name="UI" type="Control" parent="." index="1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="UI" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
@@ -18,42 +20,42 @@ margin_top = 24.0
 margin_right = -24.0
 margin_bottom = -24.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer" index="0"]
 margin_right = 976.0
 margin_bottom = 44.0
 size_flags_vertical = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer" index="0"]
-margin_right = 322.0
+[node name="Level" type="Label" parent="UI/MarginContainer/HBoxContainer" index="0"]
+margin_right = 389.0
 margin_bottom = 44.0
 size_flags_horizontal = 3
 text = "level"
 
-[node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer" index="1"]
-margin_left = 326.0
-margin_right = 649.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer" index="1"]
+margin_left = 393.0
+margin_right = 582.0
 margin_bottom = 44.0
-size_flags_horizontal = 3
-text = "time"
-align = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer" index="2"]
-margin_left = 653.0
-margin_right = 976.0
-margin_bottom = 44.0
-size_flags_horizontal = 11
 alignment = 2
 
-[node name="goal" type="Label" parent="Control/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
-margin_left = 134.0
-margin_right = 251.0
+[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/HBoxContainer" index="0"]
+margin_right = 117.0
 margin_bottom = 44.0
 size_flags_horizontal = 8
 text = "Goals: "
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
-margin_left = 255.0
-margin_right = 323.0
+[node name="Goals" type="Label" parent="UI/MarginContainer/HBoxContainer/HBoxContainer" index="1"]
+margin_left = 121.0
+margin_right = 189.0
 margin_bottom = 44.0
 size_flags_horizontal = 0
 text = "0 / 0"
+
+[node name="time" type="Label" parent="UI/MarginContainer/HBoxContainer" index="2"]
+margin_left = 586.0
+margin_right = 976.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+text = "time"
+align = 2
+
+[node name="Goals" type="Node2D" parent="." index="2"]

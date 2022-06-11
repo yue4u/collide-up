@@ -22,7 +22,3 @@ margin_bottom = 482.0
 rect_clip_content = true
 texture = ExtResource( 3 )
 stretch_mode = 5
-
-[node name="Game" type="Node" parent="ColorRect"]
-
-[node name="Node2D" type="Node2D" parent="ColorRect"]
