@@ -9,6 +9,7 @@ onready var all = goals.size();
 
 onready var time_label = $UI/MarginContainer/HBoxContainer/Time;
 onready var timer = $UI/MarginContainer/HBoxContainer/Time/Timer
+onready var result = $UI/Result
 
 var clear = false
 var time = 0
@@ -25,6 +26,11 @@ func _ready():
 	timer.start()
 
 func _process(_delta):
+	if clear:
+		if Input.is_key_pressed(KEY_SPACE):
+			load_next()
+		return
+
 	# give me reduce...
 	var done = 0
 	for i in all:
@@ -35,12 +41,10 @@ func _process(_delta):
 
 	if done != all:
 		return
-
-	get_tree().paused = true
-	load_next()
+	clear = true
+	result.visible = true
 
 func load_next():
-	yield(get_tree().create_timer(1.0), "timeout")
 	var next_level = int(scene_name) + 1
 	var __ = get_tree().change_scene("res://levels/level_%s.tscn" % next_level)
 
