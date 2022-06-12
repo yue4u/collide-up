@@ -43,6 +43,7 @@ func _process(_delta):
 		return
 	clear = true
 	result.visible = true
+	get_node("Player").pause = true
 
 func load_next():
 	var next_level = int(scene_name) + 1

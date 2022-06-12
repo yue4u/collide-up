@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
 var Goal = load("res://scripts/goal.gd")
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+var pause = false;
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
+	if pause:
+		return
+
 	var vel = Vector2()
 	if Input.is_key_pressed(KEY_D):
 		vel.x += 1
