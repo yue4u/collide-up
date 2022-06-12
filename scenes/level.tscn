@@ -50,12 +50,14 @@ margin_bottom = 44.0
 size_flags_horizontal = 0
 text = "0 / 0"
 
-[node name="time" type="Label" parent="UI/MarginContainer/HBoxContainer" index="2"]
+[node name="Time" type="Label" parent="UI/MarginContainer/HBoxContainer" index="2"]
 margin_left = 586.0
 margin_right = 976.0
 margin_bottom = 44.0
 size_flags_horizontal = 3
-text = "time"
+text = "00 : 00"
 align = 2
+
+[node name="Timer" type="Timer" parent="UI/MarginContainer/HBoxContainer/Time" index="0"]
 
 [node name="Goals" type="Node2D" parent="." index="2"]
