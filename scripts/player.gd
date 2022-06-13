@@ -23,7 +23,7 @@ func _on_Area2D_area_entered(area):
 	if area is Goal:
 		area.cover = true
 		return
-	if area.name == "Danger":
+	if area.name.begins_with("Danger"):
 		var __ = get_tree().reload_current_scene()
 		return
 	transfer(area.get_node("CollisionPolygon2D"), $Area2D)
