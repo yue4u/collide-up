@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/goal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/danger.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/level.tscn" type="PackedScene" id=3]
+
+[node name="Level 7" instance=ExtResource( 3 )]
+
+[node name="Danger" parent="Shapes" index="0" instance=ExtResource( 2 )]
+position = Vector2( 486, 335 )
+
+[node name="Player" parent="." index="2"]
+position = Vector2( 495, 440 )
+
+[node name="Goal" parent="Goals" index="0" instance=ExtResource( 1 )]
+position = Vector2( 491, 223 )
+
+[node name="Label2" type="Label" parent="UI" index="0"]
+margin_left = 646.0
+margin_top = 311.0
+margin_right = 895.0
+margin_bottom = 355.0
+custom_colors/font_color = Color( 1, 0, 0.492188, 1 )
+text = "I'm dangerous!"
