@@ -25,5 +25,5 @@ func _ready():
 func _process(delta):
 	translate(vel * delta)
 
-func _on_Node2D_viewport_exited(viewport):
+func _on_Node2D_viewport_exited(_viewport):
 	queue_free()
