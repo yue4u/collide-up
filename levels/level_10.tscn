@@ -52,13 +52,13 @@ rotation = -1.5708
 [node name="Timer" type="Timer" parent="Shapes" index="10"]
 
 [node name="Player" parent="." index="2"]
-position = Vector2( 432, 332 )
+position = Vector2( 453, 316 )
 
 [node name="Goal" parent="Goals" index="0" instance=ExtResource( 3 )]
-position = Vector2( 571, 390 )
+position = Vector2( 525, 412 )
 
 [node name="Goal2" parent="Goals" index="1" instance=ExtResource( 3 )]
-position = Vector2( 442, 187 )
+position = Vector2( 507, 220 )
 
 [node name="Goal3" parent="Goals" index="2" instance=ExtResource( 3 )]
-position = Vector2( 259, 354 )
+position = Vector2( 326, 299 )

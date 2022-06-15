@@ -7,13 +7,13 @@
 [ext_resource path="res://assets/Fascinate_Inline/FascinateInline-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
 
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 5 )
+
 [sub_resource type="DynamicFont" id=1]
 size = 24
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 24
 font_data = ExtResource( 5 )
 
 [node name="Game" instance=ExtResource( 1 )]
@@ -31,7 +31,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 
-[node name="MarginContainer" type="MarginContainer" parent="UI" index="0"]
+[node name="Label" type="Label" parent="UI" index="0"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -48.0
+margin_right = 303.0
+custom_colors/font_color = Color( 0.666667, 0.666667, 0.666667, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "press r to reset level"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" index="1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
@@ -79,7 +89,7 @@ align = 2
 
 [node name="Timer" type="Timer" parent="UI/MarginContainer/HBoxContainer/Time" index="0"]
 
-[node name="Result" type="Control" parent="UI" index="1"]
+[node name="Result" type="Control" parent="UI" index="2"]
 visible = false
 anchor_top = 0.5
 anchor_right = 1.0
@@ -144,12 +154,3 @@ margin_bottom = 65.0
 custom_fonts/font = SubResource( 1 )
 text = "press space to continue"
 align = 1
-
-[node name="Label" type="Label" parent="UI" index="2"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 24.0
-margin_top = -48.0
-custom_colors/font_color = Color( 0.666667, 0.666667, 0.666667, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "press r to reset level"
