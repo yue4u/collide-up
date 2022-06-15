@@ -12,9 +12,9 @@ func _physics_process(_delta):
 	if Input.is_key_pressed(KEY_D):
 		vel.x += 1
 	if Input.is_key_pressed(KEY_A):
-		vel.x += -1
+		vel.x -= 1
 	if Input.is_key_pressed(KEY_W):
-		vel.y += -1
+		vel.y -= 1
 	if Input.is_key_pressed(KEY_S):
 		vel.y += 1
 	var __ = move_and_slide(vel.normalized() * 300, Vector2(2, 0), false, 4, 0.785, true)
